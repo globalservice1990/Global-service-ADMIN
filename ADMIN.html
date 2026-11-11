@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0f1a">
+<meta name="robots" content="noindex,nofollow">
+<title>GLOBAL SERVICES – Admin</title>
+<!-- Admin PWA Links -->
+<link rel="manifest" href="admin-manifest.json">
+<link rel="apple-touch-icon" href="https://i.ibb.co/LVBdXSW/file-00000000f82c821082be03498bc2d478.png  ">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script>
+firebase.apps.length||firebase.initializeApp({apiKey:"AIzaSyA4F7Z91GguzUr1UYu3gT-NXzne3NEva7Y",authDomain:"global-services-556f9.firebaseapp.com",projectId:"global-services-556f9",storageBucket:"global-services-556f9.firebasestorage.app",messagingSenderId:"388494680865",appId:"1:388494680865:web:db010a038874640b865460"});
+const db=firebase.database();
+</script>
+<style>
+:root{--bg:#0a0f1a;--p:#121a2b;--p2:#182238;--ln:#25314b;--tx:#f1f4fa;--mu:#8e9bb5;--g:#e3b95c;--rd:#ef6a5e;--ok:#3ecf8e}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg) radial-gradient(600px 280px at 50% -90px,rgba(227,185,92,.16),transparent);color:var(--tx);min-height:100vh}
+.w{max-width:760px;margin:auto;padding:calc(14px + env(safe-area-inset-top)) 14px 70px}
+.hide{display:none!important}
+h2{margin:0 0 6px;font-size:20px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:4px 2px 14px}
+.brand{font-weight:800;font-size:18px}.brand small{color:var(--g);margin-left:8px;font-weight:600}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--rd);margin-right:8px}.dot.on{background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.card{background:linear-gradient(180deg,var(--p2),var(--p));border:1px solid var(--ln);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+.card>b{display:block;margin-bottom:6px}
+input,textarea{font:inherit;width:100%;padding:12px;margin:5px 0;border-radius:12px;border:1px solid var(--ln);background:#0e1524;color:var(--tx);outline:0}
+input:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(227,185,92,.15)}
+label{display:block;font-size:12.5px;color:var(--mu);margin-top:8px}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:11px 18px;font-weight:700;background:linear-gradient(135deg,#f2c766,#d09a2f);color:#1b1405}
+button:active{transform:scale(.97)}button:disabled{opacity:.5}
+button.g{background:#243049;color:var(--tx);border:1px solid var(--ln)}button.sm{padding:7px 12px;font-size:13px}
+button.ed{background:#243049;color:var(--g);border:1px solid var(--ln)}
+button.dl{background:rgba(239,106,94,.14);color:var(--rd);border:1px solid rgba(239,106,94,.3)}
+button.ok{background:rgba(62,207,142,.14);color:var(--ok);border:1px solid rgba(62,207,142,.3)}
+nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:14px;position:sticky;top:0;z-index:5;padding:6px 0;background:var(--bg)}
+nav button{background:var(--p);color:var(--mu);border:1px solid var(--ln);padding:9px 2px;font-size:11.5px;border-radius:13px;line-height:1.25}
+nav button i{display:block;font-style:normal;font-size:19px;color:var(--tx)}
+nav button.on{border-color:var(--g);color:var(--g);background:#211c10}nav button.on i{color:var(--g)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.stat{background:var(--p);border:1px solid var(--ln);border-radius:14px;padding:12px;text-align:center}.stat b{display:block;font-size:20px;color:var(--g)}.stat span{font-size:11.5px;color:var(--mu)}
+
+.r{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:14px 0;border-bottom:1px solid var(--ln)}
+.r:last-child{border:0;padding-bottom:0}.r>div:first-child{width:100%}
+.m{color:var(--mu);font-size:13px;margin-top:4px;word-break:break-word;white-space:normal}.m a,.r a{color:var(--g)}
+.b{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start;width:100%}
+
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;background:rgba(62,207,142,.14);color:var(--ok);margin-left:6px;font-weight:700}.tag.nw{background:rgba(227,185,92,.16);color:var(--g)}
+.pr{color:var(--g);font-weight:800}
+img.p{width:58px;height:58px;object-fit:cover;border-radius:12px;border:1px solid var(--ln)}
+.row2{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.tools input{flex:1;min-width:140px;margin:0}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:flex-end;justify-content:center;z-index:50}
+.modal.on{display:flex}.sheet{background:var(--p);border:1px solid var(--ln);width:100%;max-width:560px;border-radius:22px 22px 0 0;padding:18px;max-height:90vh;overflow:auto}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);background:#1c2640;border:1px solid var(--g);padding:10px 18px;border-radius:30px;opacity:0;transition:.25s;z-index:60;pointer-events:none;font-size:14px}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+#login{margin-top:12vh}
+:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="w">
+<div id="login" class="card"><h2>🔒 Admin Login</h2><input id="pw" type="password" placeholder="Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')login()"><button onclick="login()">Andar aao</button><p id="err" class="m"></p></div>
+
+<div id="app" class="hide">
+  <div class="top"><div class="brand">GLOBAL SERVICES<small>Admin</small></div><div class="m"><span id="conn" class="dot"></span><a href="GLOBAL_SERVICE.html" target="_blank">Site dekho</a> · <a href="#" onclick="logout();return false">Logout</a></div></div>
+  <div class="stats"><div class="stat"><b id="st1">0</b><span>Naye enquiries</span></div><div class="stat"><b id="st2">0</b><span>Reviews</span></div><div class="stat"><b id="st3">0</b><span>Services</span></div></div>
+  <nav>
+    <button data-t="s" class="on"><i id="c-s">0</i>Services</button>
+    <button data-t="i"><i id="c-i">0</i>Photos</button>
+    <button data-t="l"><i id="c-l">0</i>Locations</button>
+    <button data-t="e"><i id="c-e">0</i>Enquiries</button>
+    <button data-t="v"><i id="c-v">0</i>Reviews</button>
+  </nav>
+
+  <div id="s"><div class="card"><b>Nayi service add karo</b>
+    <input id="sn" placeholder="discription (more detial) "><input id="sp" placeholder="Price (jaise ₹499)"><input id="sx" placeholder="Extra / details (optional)">
+    <button onclick="addService()">Add karo</button></div>
+    <div class="card"><div class="tools"><input id="fs" placeholder="Service dhoondo" oninput="render()"></div><div id="sl"></div></div></div>
+
+  <div id="i" class="hide">
+    <div class="card"><b>Main Banner (Customer App ke liye)</b>
+      <input id="bun" placeholder="Image URL (agar link ho)">
+      <div class="m">ya gallery se upload karo:</div>
+      <input id="buf" type="file" accept="image/*">
+      <button id="bbn" onclick="updateBanner()">Banner Update Kar</button>
+    </div>
+    <div class="card"><b>Photo add karo</b>
+      <input id="in" placeholder="SERVICE KA NAME (ac repair)"><input id="iu" placeholder="Image URL"><div class="m">ya phone se upload karo:</div><input id="if" type="file" accept="image/*">
+      <button id="ib" onclick="addImage()">Save karo</button></div>
+    <div class="card" id="il"></div>
+  </div>
+
+  <div id="l" class="hide"><div class="card"><b>Nayi location add karo</b>
+    <div class="m">Jo location "Main" hogi, wahi website me sab jagah dikhegi.</div>
+    <input id="ln" placeholder="Area / sheher (jaise Saheed Nagar, Bhubaneswar)"><input id="la" placeholder="Poora address"><input id="lm" placeholder="Google Maps link (optional)"><input id="lx" placeholder="Note (optional, jaise Head Office)">
+    <div class="row2"><button onclick="addLoc()">Add karo</button><button class="g" onclick="gps()">📍 Meri abhi ki location lo</button></div></div><div class="card" id="ll"></div></div>
+
+  <div id="e" class="hide"><div class="card"><div class="tools"><input id="fe" placeholder="Naam ya number dhoondo" oninput="render()"><button class="g sm" id="fl" onclick="cycleF()">Sab</button><button class="g sm" onclick="exportCsv()">⬇ CSV</button></div><div id="el"></div></div></div>
+
+  <div id="v" class="hide"><div class="card" id="vl"></div></div>
+
+  <div class="card"><b>Backup</b><div class="m">Poora data ek file me save karo, kuch galti se delete ho jaye to safe rahega.</div><div class="row2"><button class="g" onclick="backup()">⬇ Backup download karo</button></div></div>
+</div>
+</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeM()"><div class="sheet"><h2 id="mt">Edit karo</h2><div id="mf"></div>
+  <div class="row2" style="margin-top:14px"><button onclick="saveEdit()">Save karo</button><button class="g" onclick="closeM()">Cancel</button></div></div></div>
+<div id="toast"></div>
+
+<script>
+const PASSWORD="786055"; // NOTE: client-side only. Real security ke liye Firebase Auth + database rules lagao.
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=u=>/^https?:\/\//i.test(u||'')?u:'';
+const imgOk=u=>/^(https?:\/\/|data:image\/)/i.test(u||'')?u:'';
+const D={jod_services:[],jod_images:[],jod_locations:[],jod_enquiries:[],jod_reviews:[]};
+let EDIT=null,started=false,F=0;const FL=['Sab','Naye','Ho gaye'];
+
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2400)}
+function login(){if($('pw').value===PASSWORD){sessionStorage.setItem('jod_auth','1');show()}else $('err').textContent='Galat password'}
+function logout(){sessionStorage.removeItem('jod_auth');location.reload()}
+function show(){$('login').classList.add('hide');$('app').classList.remove('hide');if(!started){started=true;listen()}}
+if(sessionStorage.getItem('jod_auth'))show();
+
+document.querySelectorAll('nav [data-t]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav [data-t]').forEach(x=>x.classList.toggle('on',x===b));
+  ['s','i','l','e','v'].forEach(t=>$(t).classList.toggle('hide',t!==b.dataset.t));
+});
+function listen(){
+  Object.keys(D).forEach(f=>db.ref(f).on('value',snap=>{const a=[];snap.forEach(c=>{a.push({key:c.key,...c.val()})});a.sort((x,y)=>(x.time||0)-(y.time||0));D[f]=a;render()},err=>toast('Database error: '+err.code)));
+  db.ref('.info/connected').on('value',s=>{$('conn').className=s.val()?'dot on':'dot'});
+}
+const pack=file=>new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,800/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.75))};im.onerror=no;im.src=r.result};r.onerror=no;r.readAsDataURL(file)});
+
+window.addService=function(){
+  const n=$('sn').value.trim(),p=$('sp').value.trim(),x=$('sx').value.trim();if(!n||!p)return toast('Naam aur price dono daalo');
+  db.ref('jod_services').push({name:n,price:p,extra:x,time:Date.now()}).then(()=>{$('sn').value=$('sp').value=$('sx').value='';toast('Service add ho gayi')}).catch(()=>toast('Save nahi hua'));
+};
+
+window.updateBanner = async function() {
+  const url = $('bun').value.trim();
+  const f = $('buf').files[0];
+  const b = $('bbn');
+  
+  if(!f && !safeUrl(url)) return toast('Image link daal ya gallery se photo chun');
+  
+  b.disabled = true;
+  toast('Banner set ho raha hai...');
+  try {
+    const src = f ? await pack(f) : url;
+    await db.ref('jod_settings/banner').set(src);
+    toast('Banner update ho gaya!');
+    $('bun').value = $('buf').value = '';
+  } catch(e) {
+    toast('Update fail ho gaya');
+  }
+  b.disabled = false;
+};
+
+window.addImage=async function(){
+  const name=$('in').value.trim(),url=$('iu').value.trim(),f=$('if').files[0],b=$('ib');
+  if(!name)return toast('Naam daalo');if(!f&&!safeUrl(url))return toast('http se shuru hone wala URL do ya photo chuno');
+  b.disabled=true;try{const src=f?await pack(f):url;await db.ref('jod_images').push({name,src,time:Date.now()});$('in').value=$('iu').value=$('if').value='';toast('Photo save ho gayi')}catch(e){toast('Photo save nahi hui')}b.disabled=false;
+};
+window.addLoc=function(){
+  const name=$('ln').value.trim(),address=$('la').value.trim()||name,map=$('lm').value.trim(),extra=$('lx').value.trim();
+  if(!name)return toast('Area / sheher ka naam daalo');if(map&&!safeUrl(map))return toast('Map link http se shuru hona chahiye');
+  db.ref('jod_locations').push({name,address,map,extra,main:D.jod_locations.length===0,time:Date.now()});['ln','la','lm','lx'].forEach(i=>$(i).value='');toast('Location add ho gayi');
+};
+window.gps=function(){
+  if(!navigator.geolocation)return toast('Is phone me location support nahi hai');toast('Location le raha hu...');
+  navigator.geolocation.getCurrentPosition(async p=>{const a=p.coords.latitude,b=p.coords.longitude;$('lm').value='https://www.google.com/maps?q='+a+','+b;
+    try{const j=await(await fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat='+a+'&lon='+b)).json(),ad=j.address||{};
+      if(!$('la').value)$('la').value=j.display_name||'';if(!$('ln').value)$('ln').value=[ad.suburb||ad.neighbourhood||ad.village,ad.city||ad.town].filter(Boolean).join(', ')}catch(e){}
+    toast('Location mil gayi')},()=>toast('Location allow karo'),{timeout:10000});
+};
+function setMain(key){const u={};D.jod_locations.forEach(l=>{u[l.key+'/main']=(l.key===key)});db.ref('jod_locations').update(u).then(()=>toast('Main location set'))}
+function toggleDone(k){const o=D.jod_enquiries.find(x=>x.key===k);if(o)db.ref('jod_enquiries/'+k).update({done:!o.done})}
+function cycleF(){F=(F+1)%3;$('fl').textContent=FL[F];render()}
+const dl=(name,text,type)=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)};
+function exportCsv(){
+  const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';
+  dl('enquiries.csv','Naam,Phone,Message,Time,Status\n'+D.jod_enquiries.map(x=>[x.name,x.phone,x.msg,x.time?new Date(x.time).toLocaleString():'',x.done?'Done':'New'].map(q).join(',')).join('\n'),'text/csv');
+}
+function backup(){const o={};Object.keys(D).forEach(f=>{o[f]={};D[f].forEach(x=>{const {key,...r}=x;o[f][key]=r})});dl('global-services-backup-'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify(o,null,1),'application/json');toast('Backup ban gaya')}
+
+const CFG={jod_services:[['name','Service ka naam'],['price','Price (jaise ₹499)'],['extra','Extra / details (optional)']],jod_images:[['name','Photo ka naam'],['src','Image URL']],jod_locations:[['name','Area / sheher'],['address','Poora address'],['map','Google Maps link (optional)'],['extra','Note (optional)']]};
+function openEdit(f,k){
+  const o=D[f].find(x=>x.key===k);if(!o)return;EDIT={f,k};
+  $('mf').innerHTML=CFG[f].map(([n,l])=>{const big=n==='src'&&String(o.src||'').startsWith('data:');return`<label>${l}<input data-n="${n}" value="${big?'':esc(o[n])}" placeholder="${big?'Upload ki hui photo hai. Badalni ho to URL ya nayi photo do':''}"></label>`}).join('')+(f==='jod_images'?'<label>Nayi photo (optional)<input type="file" id="mfile" accept="image/*"></label>':'');
+  $('modal').classList.add('on');
+}
+function closeM(){$('modal').classList.remove('on');EDIT=null}
+async function saveEdit(){
+  if(!EDIT)return;const{f,k}=EDIT,u={};$('mf').querySelectorAll('input[data-n]').forEach(i=>{u[i.dataset.n]=i.value.trim()});
+  if(!u.name)return toast('Naam khali nahi ho sakta');if(f==='jod_services'&&!u.price)return toast('Price daalo');
+  if(f==='jod_locations'){if(u.map&&!safeUrl(u.map))return toast('Map link http se shuru hona chahiye');if(!u.address)u.address=u.name}
+  try{if(f==='jod_images'){const file=$('mfile').files[0];if(file)u.src=await pack(file);else if(!u.src)delete u.src;else if(!safeUrl(u.src)&&!u.src.startsWith('data:'))return toast('URL http se shuru hona chahiye')}
+    await db.ref(f+'/'+k).update(u);closeM();toast('Save ho gaya')}catch(e){toast('Save nahi hua, dobara try karo')}
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-a]');if(!b)return;const{a,f,k}=b.dataset;
+  if(a==='edit')openEdit(f,k);else if(a==='main')setMain(k);else if(a==='done')toggleDone(k);
+  else if(a==='copy')navigator.clipboard&&navigator.clipboard.writeText(b.dataset.v).then(()=>toast('Copy ho gaya'));
+  else if(a==='del'){
+    const pair=(f==='jod_services'||f==='jod_images');
+    if(pair){
+      const other=f==='jod_services'?'jod_images':'jod_services';
+      const idx=D[f].findIndex(x=>x.key===k),mate=idx>=0?D[other][idx]:null;
+      if(!confirm(mate?'Pakka delete karna hai? Naam, price aur photo sab delete ho jayenge.':'Pakka delete karna hai?'))return;
+      const u={};u[f+'/'+k]=null;if(mate)u[other+'/'+mate.key]=null;
+      db.ref().update(u).then(()=>toast('Poora item delete ho gaya')).catch(()=>toast('Delete nahi hua'));
+    }else if(confirm('Pakka delete karna hai?'))db.ref(f+'/'+k).remove().then(()=>toast('Delete ho gaya')).catch(()=>toast('Delete nahi hua'));
+  }
+});
+const acts=(f,k,more='')=>`<div class="b">${more}<button class="ed sm" data-a="edit" data-f="${f}" data-k="${k}">✏️ Edit</button><button class="dl sm" data-a="del" data-f="${f}" data-k="${k}">✕</button></div>`;
+const ph10=p=>String(p||'').replace(/\D/g,'').slice(-10);
+
+function render(){
+  const s=D.jod_services,i=D.jod_images,l=D.jod_locations,e=D.jod_enquiries,v=D.jod_reviews;
+  const mainKey=(l.find(x=>x.main)||l[0]||{}).key;
+  $('c-s').textContent=s.length;$('c-i').textContent=i.length;$('c-l').textContent=l.length;$('c-e').textContent=e.length;$('c-v').textContent=v.length;
+  $('st1').textContent=e.filter(x=>!x.done).length;$('st2').textContent=v.length;$('st3').textContent=s.length;
+  const fs=($('fs').value||'').toLowerCase(),sf=s.filter(x=>(x.name+' '+x.price+' '+(x.extra||'')).toLowerCase().includes(fs));
+  $('sl').innerHTML=sf.length?sf.map(x=>`<div class="r"><div><b>${esc(x.name)}</b><div class="pr">${esc(x.price)}</div>${x.extra?`<div class="m">${esc(x.extra)}</div>`:''}</div>${acts('jod_services',x.key)}</div>`).join(''):'<span class="m">Koi service nahi mili</span>';
+  $('il').innerHTML=i.length?i.map(x=>`<div class="r"><div style="display:flex;gap:12px;align-items:center"><img class="p" src="${esc(imgOk(x.src))}" alt=""><b>${esc(x.name)}</b></div>${acts('jod_images',x.key)}</div>`).join(''):'<span class="m">Abhi koi photo nahi</span>';
+  $('ll').innerHTML=l.length?l.map(x=>{const isMain=x.key===mainKey,m=safeUrl(x.map);return`<div class="r"><div><b>📍 ${esc(x.name)}</b>${isMain?'<span class="tag">Main</span>':''}<div class="m">${esc(x.address)}</div>${x.extra?`<div class="m">${esc(x.extra)}</div>`:''}${m?`<div class="m"><a href="${esc(m)}" target="_blank" rel="noopener">Map kholo</a></div>`:''}</div>${acts('jod_locations',x.key,isMain?'':`<button class="g sm" data-a="main" data-k="${x.key}">Main banao</button>`)}</div>`}).join(''):'<span class="m">Abhi koi location nahi. Website me default location dikh rahi hai.</span>';
+  const fe=($('fe').value||'').toLowerCase(),ef=e.slice().reverse().filter(x=>(F===0||(F===1?!x.done:x.done))&&((x.name||'')+' '+(x.phone||'')+' '+(x.msg||'')).toLowerCase().includes(fe));
+  $('el').innerHTML=ef.length?ef.map(x=>{const p=ph10(x.phone);return`<div class="r"><div><b>${esc(x.name)}</b>${x.done?'<span class="tag">Done</span>':'<span class="tag nw">New</span>'}<div class="m"><a href="tel:+91${p}">${esc(x.phone)}</a></div><div>${esc(x.msg)}</div><div class="m">${x.time?new Date(x.time).toLocaleString():''}</div></div><div class="b"><a href="tel:+91${p}"><button class="g sm">📞 Call</button></a><a href="https://wa.me/91${p}" target="_blank" rel="noopener"><button class="g sm">WhatsApp</button></a><button class="ok sm" data-a="done" data-k="${x.key}">${x.done?'↩ Reopen':'✓ Done'}</button><button class="g sm" data-a="copy" data-v="${esc(p)}">Copy</button><button class="dl sm" data-a="del" data-f="jod_enquiries" data-k="${x.key}">✕</button></div></div>`}).join(''):'<span class="m">Koi enquiry nahi</span>';
+  $('vl').innerHTML=v.length?v.slice().reverse().map(x=>`<div class="r"><div><b>${esc(x.name)}</b> <span class="pr">${'★'.repeat(+x.stars||0)}</span><div>${esc(x.text)}</div><div class="m">${x.time?new Date(x.time).toLocaleString():''}</div></div><div class="b"><button class="dl sm" data-a="del" data-f="jod_reviews" data-k="${x.key}">✕</button></div></div>`).join(''):'<span class="m">Abhi koi review nahi</span>';
+}
+</script>
+
+<!-- Admin PWA Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('admin-sw.js');
+    });
+  }
+</script>
+
+</body>
+</html>
