@@ -1,0 +1,21 @@
+{
+  "name": "GLOBAL SERVICE ADMIN",
+  "short_name": "GLOBAL SERVICE ADMIN",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0a0f1a",
+  "theme_color": "#ef6a5e",
+  "description": "Admin Panel for Global Services",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/LVBdXSW/file-00000000f82c821082be03498bc2d478.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.ibb.co/LVBdXSW/file-00000000f82c821082be03498bc2d478.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
