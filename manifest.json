@@ -1,4 +1,7 @@
 {
+  "id": "global-admin-app",
+"scope": "./",
+  
   "name": "GLOBAL SERVICE ADMIN",
   "short_name": "GLOBAL SERVICE ADMIN",
   "start_url": "./",
