@@ -7,8 +7,8 @@
 <meta name="robots" content="noindex,nofollow">
 <title>GLOBAL SERVICES – Admin</title>
 <!-- Admin PWA Links -->
-<link rel="manifest" href="admin-manifest.json">
-<link rel="apple-touch-icon" href="https://i.ibb.co/LVBdXSW/file-00000000f82c821082be03498bc2d478.png  ">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="https://i.ibb.co/LVBdXSW/file-00000000f82c821082be03498bc2d478.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -241,7 +241,7 @@ function render(){
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('admin-sw.js');
+      navigator.serviceWorker.register('sw.js');
     });
   }
 </script>
